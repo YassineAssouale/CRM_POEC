@@ -1,0 +1,14 @@
+<div class="container-fluid mainpage">
+  <div class="row">
+    <div class="col" id="left">
+      <ng-content select=".mainpage"></ng-content>
+    </div>
+    <aside
+      id="rightdisplay"
+      [ngClass]="{ 'close-slide': !authService.cardSlide }">
+      <div class="col">
+        <ng-content select=".rightdisplay"></ng-content>
+      </div>
+    </aside>
+  </div>
+</div>

@@ -1,0 +1,79 @@
+<app-card-slide [buttonName]="cardSlideButtonName">
+  <ng-container class="headerText">
+    <h4>Modification d'un client</h4>
+  </ng-container>
+  <ng-container class="slide-content">
+    <div class="container">
+      <form [formGroup]='customerForm' (ngSubmit)="editCustomer()">
+
+        <div class="mb-3" hidden>
+          <label for="firstname" class="form-label">Prénom</label>
+          <input type="text" class="form-control" id="firstname" formControlName="firstname">
+        </div>
+
+        <div class="mb-3">
+          <label for="firstname" class="form-label">Prénom</label>
+          <input type="text" class="form-control" id="firstname" formControlName="firstname">
+        </div>
+
+        <div *ngIf="customerForm.get('firstname').errors?.required && customerForm.get('firstname').touched"
+          class="alert alert-danger">Champs prénom est obligatoire</div>
+        <div *ngIf="customerForm.get('firstname').errors?.maxlength" class="alert alert-danger">Champs prénom doit
+          contenir au plus 15 caractères</div>
+
+        <div class="mb-3">
+          <label for="lastname" class="form-label">Nom</label>
+          <input type="text" class="form-control" id="lastname" formControlName="lastname">
+        </div>
+
+        <div *ngIf="customerForm.get('lastname').errors?.required && customerForm.get('lastname').touched"
+          class="alert alert-danger">Champs nom est obligatoire</div>
+        <div *ngIf="customerForm.get('lastname').errors?.maxlength" class="alert alert-danger">Champs nom doit contenir au
+          plus 15 caractères</div>
+
+        <div class="mb-3">
+          <label for="mobile" class="form-label">Mobile</label>
+          <input type="text" class="form-control" id="mobile" formControlName="mobile">
+        </div>
+        <div class="mb-3">
+          <label for="phone" class="form-label">Téléphone</label>
+          <input type="text" class="form-control" id="phone" formControlName="phone">
+        </div>
+
+        <div *ngIf="customerForm.get('phone').errors?.required && customerForm.get('phone').touched"
+          class="alert alert-danger">Champs téléphone est obligatoire</div>
+        <div *ngIf="customerForm.get('phone').errors?.pattern" class="alert alert-danger">Champs téléphone doit contenir
+          10 caractères</div>
+
+        <div class="mb-3">
+          <label for="company" class="form-label">Société</label>
+          <input type="text" class="form-control" id="company" formControlName="company">
+        </div>
+        <div class="mb-3">
+          <label for="mail" class="form-label">Email</label>
+          <input type="email" class="form-control" id="mail" aria-describedby="emailHelp" formControlName="mail">
+        </div>
+
+        <div *ngIf="customerForm.get('mail').errors?.required && customerForm.get('mail').touched"
+          class="alert alert-danger">Champs Email est obligatoire</div>
+        <div *ngIf="customerForm.get('mail').errors?.pattern" class="alert alert-danger">L'adresse Email n'est pas valide
+        </div>
+
+        <div class="form-floating">
+          <label for="notes">Notes</label>
+          <textarea class="form-control" placeholder="Laissez votre commentaire" id="notes"
+            formControlName="notes"></textarea>
+        </div>
+
+        <div class="mt-3">
+          <label for="client">Client</label><br/>
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="active" checked formControlName="active">
+          <label class="form-check-label" for="active">Actif</label>
+        </div>
+        <button type="submit" class="btn btn-success" [disabled]="customerForm.invalid">Modifier</button>
+      </form>
+    </div>
+  </ng-container>
+</app-card-slide>

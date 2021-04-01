@@ -1,0 +1,120 @@
+{
+  "customers": [
+    {
+      "active": true,
+      "company": "m2i",
+      "firstname": "Jean",
+      "id": 1,
+      "lastname": "Dupont",
+      "mail": "jean@dupont.fr",
+      "mobile": "0606060606",
+      "phone": "0202020202",
+      "notes": "Notes Jean",
+      "orders": [
+        {
+          "id": 1,
+          "label": "Formation Java",
+          "adrEt": 500,
+          "numberOfDays": 57,
+          "tva": 20,
+          "status": "DEBUTANT",
+          "type": "Formation",
+          "notes": "Notes formation",
+          "customerId": 1
+        },
+        {
+          "id": 2,
+          "label": "Stage immersion entreprise",
+          "adrEt": 300,
+          "numberOfDays": 20,
+          "tva": 20,
+          "status": "DEBUTANT",
+          "type": "Stage",
+          "notes": "Mise en application sur un projet M2I",
+          "customerId": 1
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "lastname": "gueroult",
+      "firstname": "christophe",
+      "company": "m2i formation",
+      "mail": "test@m2i.fr",
+      "phone": "0655447788",
+      "mobile": "",
+      "notes": "note test 2",
+      "active": false,
+      "orders": []
+    }
+  ],
+  "orders": [
+    {
+      "tva": 20,
+      "status": "DEBUTANT",
+      "type": "Formation",
+      "label": "fdsfdf",
+      "adrEt": 450,
+      "numberOfDays": 40,
+      "notes": "fdsdf",
+      "customerId": 2,
+      "id": 1
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "Alex",
+      "mail": "alexandra.lomel@test.fr",
+      "password": "alexandra"
+    },
+    {
+      "id": 2,
+      "username": "Jean",
+      "mail": "jean.michel@test.fr",
+      "password": "jeanmichel"
+    },
+    {
+      "id": 3,
+      "username": "Test",
+      "mail": "test2@test.com",
+      "password": "Password"
+    },
+    {
+      "username": "qgsgdfqs",
+      "password": "sdfqfqss",
+      "mail": "dfgqdfsq@test.com",
+      "id": 4
+    }
+  ],
+  "usersComplements": [
+    {
+      "role": "USER",
+      "dateCreation": "2019-02-02",
+      "dateLastConnexion": "2019-02-02",
+      "id": 1,
+      "idUser": 1
+    },
+    {
+      "role": "ADMIN",
+      "dateCreation": "2019-03-30",
+      "dateLastConnexion": "2020-01-02",
+      "id": 2,
+      "idUser": 2
+    },
+    {
+      "role": "SUPERADMIN",
+      "id": 3,
+      "idUser": 3,
+      "dateCreation": "2020-12-12",
+      "dateLastConnexion": "2021-03-08T13:56:02.293Z"
+    },
+    {
+      "dateCreation": "2021-03-10",
+      "dateLastConnexion": "2021-03-11",
+      "role": "USER",
+      "idUser": 4,
+      "id": 4
+    }
+  ]
+}

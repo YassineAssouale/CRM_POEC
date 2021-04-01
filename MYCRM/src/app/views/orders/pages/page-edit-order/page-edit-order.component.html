@@ -1,0 +1,79 @@
+<app-card-slide>
+  <ng-container class="headerText">
+    <h4>Modification d'une commande</h4>
+  </ng-container>
+  <ng-container class="slide-content">
+    <div class="container">
+      <form [formGroup]="formEditOrder" (ngSubmit)="editOrder()">
+
+        <div class="mb-3"class="form-group" hidden>
+          <label for="label" class="font-weight-bold">Label :</label>
+          <input id="label" type="text" class="form-control" formControlName="label"/>
+        </div>
+
+        <div class="mb-3"class="form-group">
+          <label for="label" class="font-weight-bold">Label :</label>
+          <input id="label" type="text" class="form-control" formControlName="label"/>
+        </div>
+        <div *ngIf="formEditOrder.get('label').errors?.required && formEditOrder.get('label').touched" class="alert alert-danger">Champ obligatoire!</div>
+        <div *ngIf="formEditOrder.get('label').errors?.maxlength && formEditOrder.get('label').touched" class="alert alert-danger">30 caractères maximum</div>
+
+        <div class="mb-3"class="form-group">
+          <label for="adrEt" class="font-weight-bold">TJM :</label>
+          <input id="adrEt" type="number" class="form-control" formControlName="adrEt">
+        </div>
+        <div *ngIf="formEditOrder.get('adrEt').errors?.max && formEditOrder.get('adrEt').touched" class="alert alert-danger">Tjm 750 max!</div>
+
+        <div class="mb-3"class="form-group">
+          <label for="numberOfDays" class="font-weight-bold">Nombre de jours :</label>
+          <input id="numberOfDays" type="number" class="form-control" formControlName="numberOfDays" >
+        </div>
+        <div *ngIf="formEditOrder.get('numberOfDays').errors?.required && formEditOrder.get('numberOfDays').touched" class="alert alert-danger">Nombre de jours obligatoire!</div>
+
+        <div class="mb-3"class="form-group">
+          <label for="tva" class="font-weight-bold">Tva :</label>
+          <input id="tva" type="number" class="form-control" formControlName="tva">
+        </div>
+        <div *ngIf="formEditOrder.get('tva').errors?.required && formEditOrder.get('tva').touched" class="alert alert-danger">Tva obligatoire!</div>
+
+        <div class="mb-3"class="form-group">
+          <label for="status" class="font-weight-bold">Status :</label>
+          <select class="form-control" id="status" formControlName="status">
+            <option [ngValue]="null" disabled>Choisir un statut: </option>
+            <option *ngFor="let s of status" [ngValue] ="s">
+              {{s}}</option>
+          </select>
+        </div>
+
+        <div class="mb-3"class="form-group">
+          <label for="type" class="font-weight-bold">Type :</label>
+          <select class="form-control" id="type" formControlName="type" >
+            <option [ngValue]="null" disabled>Choisir un type: </option>
+            <option *ngFor="let t of types" [ngValue] ="t">
+              {{t}}</option>
+          </select>
+        </div>
+
+        <div class="mb-3"class="form-group">
+          <label for="notes" class="font-weight-bold">Notes :</label>
+          <textarea id="notes" class="form-control" formControlName="notes">
+          </textarea>
+        </div>
+
+        <div *ngIf="customerObs">
+          <div class="mb-3"class="form-group">
+            <label for="customerId" class="font-weight-bold">Clients :</label>
+            <select class="form-control" formControlName="customerId">
+              <option [ngValue]="null" disabled>Choisir un client: </option>
+              <option *ngFor="let c of customerObs |async" [ngValue] ="c.id">
+                {{c.firstname}} {{c.lastname}}</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-success" [disabled]="formEditOrder.invalid" >Enregistrer</button>
+
+      </form>
+    </div>
+  </ng-container>
+</app-card-slide>

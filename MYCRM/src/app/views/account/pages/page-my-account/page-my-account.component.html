@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="card mt-3 mx-auto">
+    <div class="row g-0">
+      <div class="col-md-6">
+        <img src="assets\images\LandscapeBalloon.png" alt="MyCRMLogo" class="img" />
+      </div>
+      <div class="col-md-6">
+        <div class="card-body" *ngIf="userObs |async as user">
+          <h5 class="card-title">{{ user.username }}</h5>
+          <p class="card-text">
+            <!-- A enlever quand on gèrera correctement les mots de passe (= pas en clair dans la base, #ViveBCrypt) - Idéalement, rajouter un lien pour modifier le mdp ? -->
+            <strong>Mot de passe : </strong>{{ user.password }}<br/>
+            <strong>Email : </strong> {{ user.mail }}<br/>
+            <strong>Date de création : </strong> {{ user.dateCreation | date: "dd/MM/yyyy" }}<br/>
+            <strong>Dernière création : </strong> {{ user.dateLastConnexion | date: "dd/MM/yyyy" }}<br/>
+            <strong>Role : </strong> {{ user.role }}<br/>
+          </p>
+          <!-- <p class="card-text">
+            <small class="text-muted">Last updated 355668 years, 23 hours, 25 minutes and 6 seconds ago</small>
+          </p> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<app-page-template>
+  <ng-container class="mainpage">
+    <app-header-page
+      [title]="title"
+      [tabFilters]="filters"
+      [message]="messageOrder"
+      (clickedFilter)="filter($event)"
+      (clickedSearchTerm)="searchTerm($event)"
+      (clickedAdd)="redirectAdd()">
+    </app-header-page>
+
+    <div *ngIf="ordersObs | async as orders">
+      <app-card *ngFor="let o of orders"
+        [selection]="selection"
+        [valueSelected]="o.status"
+        (clickedItemSelection)="select($event, o)"
+        (editClicked)="editOrder(o.id)"
+        (displayClicked)="display(o.id)"
+        (deleteClicked)="deleteX(o.id)"
+      >
+
+        <!-- ng-content titles -->
+        <ng-container class="titles">
+          <p><strong>{{ o.label }}</strong></p>
+          <p> {{ o.status }}</p>
+          <!-- <p><strong>{{ o | orderToCustomer | async }}</strong></p> -->
+
+          <!-- test d integration select generic component  -->
+          <!--<app-template-selection class="modis mt-5"
+          [selection]="selection"
+          [valueSelected]="o.status"
+          (clickedItemSelection)="select($event, o)">
+          </app-template-selection>-->
+        </ng-container>
+
+        <!-- ng-content card-body -->
+        <ng-container class="card-body">
+          <p [appOrderHtColor]='o | displayTaxes : "HT"'><span>Total HT : </span>{{ o | displayTaxes : 'HT' | currency :
+            'EUR'}} </p>
+          <p><span>Total TTC : </span>{{ o | displayTaxes : 'TTC' | currency : 'EUR' }} </p>
+          <p><span>T.V.A : </span>{{ o.tva }} %</p>
+
+        </ng-container>
+      </app-card>
+    </div>
+  </ng-container>
+
+  <ng-container class="rightdisplay">
+    <router-outlet class="rightdisplay"></router-outlet>
+  </ng-container>
+</app-page-template>

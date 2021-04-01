@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="card-header position-relative mb-2">
+    <!-- Close Icon -->
+    <div class="closeIcon text-right">
+      <!-- directive w-100 -> 0 -->
+      <app-icon-close></app-icon-close>
+    </div>
+
+    <!-- Header text content -->
+    <span id="headerText">
+      <ng-content select=".headerText"></ng-content>
+    </span>
+  </div>
+
+  <div class="card-body">
+    <ng-content select=".slide-content"></ng-content>
+  </div>
+</div>

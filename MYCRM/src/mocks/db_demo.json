@@ -1,0 +1,139 @@
+{
+  "customers": [
+    {
+      "active": true,
+      "company": "m2i",
+      "firstname": "Jean",
+      "id": 1,
+      "lastname": "Dupont",
+      "mail": "jean@dupont.fr",
+      "mobile": "0606060606",
+      "phone": "0202020202",
+      "notes": "Aucune note pour le moment"
+    },
+    {
+      "id": 2,
+      "lastname": "Gueroult",
+      "firstname": "Christophe",
+      "company": "m2i formation",
+      "mail": "test@m2i.fr",
+      "phone": "0655447788",
+      "mobile": "",
+      "notes": "notes personnelles: RAS",
+      "active": false
+    },
+    {
+      "id": 3,
+      "lastname": "Benro",
+      "firstname": "Abdel",
+      "company": "m2i formation",
+      "mail": "abdel.benro@m2i.fr",
+      "phone": "0102030405",
+      "mobile": null,
+      "notes": "Notes personnelles à l'attention de Abdel Benro: Les formations dispensées doivent être sauvegardé",
+      "active": true
+    }
+  ],
+  "orders": [
+    {
+      "id": 2,
+      "label": "Stage immersion entreprise",
+      "adrEt": 300,
+      "numberOfDays": 20,
+      "tva": 20,
+      "status": "DEBUTANT",
+      "type": "Stage",
+      "notes": "Mise en application sur un projet M2I",
+      "customerId": 1
+    },
+    {
+      "tva": 20,
+      "status": "EXPERT",
+      "type": "Formation",
+      "id": 3,
+      "label": "Formation Python",
+      "adrEt": 420,
+      "numberOfDays": 30,
+      "notes": "Il s'agit d'une formation débutant. Les stagiaires n'ont aucune connaissances en développement. Il faut donc reprendre les bases",
+      "customerId": 2
+    },
+    {
+      "id": 4,
+      "label": "Formation Gestion de projet",
+      "adrEt": 660,
+      "numberOfDays": 7,
+      "tva": 20,
+      "status": "CONFIRME",
+      "type": "Formation",
+      "notes": "Nouveau module",
+      "customerId": 1
+    },
+    {
+      "id": 5,
+      "label": "Formation Python Avancée",
+      "adrEt": 470,
+      "numberOfDays": 30,
+      "tva": 20,
+      "status": "EXPERT",
+      "type": "Formation",
+      "notes": "Il s'agit d'une formation expert. Les stagiaires ont normalement suivi la formation débutant. Il faut continuer sur les mêmes TP",
+      "customerId": 2
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "Alex",
+      "mail": "alexandra.lomel@test.fr",
+      "password": "alexandra"
+    },
+    {
+      "id": 2,
+      "username": "Jean",
+      "mail": "jean.michel@test.fr",
+      "password": "jeanmichel"
+    },
+    {
+      "id": 3,
+      "username": "Elodie",
+      "mail": "elo@test.com",
+      "password": "Elodie"
+    },
+    {
+      "id": 4,
+      "username": "Joe",
+      "mail": "joe@test.com",
+      "password": "JoeJoe001"
+    }
+  ],
+  "usersComplements": [
+    {
+      "role": "USER",
+      "id": 1,
+      "idUser": 1,
+      "dateCreation": "2019-02-02",
+      "dateLastConnexion": "2021-03-08T07:54:22.523Z"
+    },
+    {
+      "role": "ADMIN",
+      "dateCreation": "2019-03-30",
+      "dateLastConnexion": "2020-01-02",
+      "id": 2,
+      "idUser": 2
+    },
+    {
+      "role": "SUPERADMIN",
+      "id": 3,
+      "idUser": 3,
+      "dateCreation": "2020-12-12",
+      "dateLastConnexion": "2021-03-09T17:14:24.015Z"
+    },
+    {
+      "role": "USER",
+      "id": 4,
+      "idUser": 4,
+      "dateCreation": "2019-02-02",
+      "dateLastConnexion": "2021-03-08T07:54:22.523Z"
+    }
+  ]
+}

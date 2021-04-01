@@ -1,0 +1,49 @@
+<div class="page-header">
+  <div>
+    <div>
+      <h1>{{ title }}</h1>
+      <ul class="nav">
+        <li class="nav-item" *ngFor="let item of tabFilters">
+          <a (click)="filter(item)">{{ item }}</a>
+        </li>
+      </ul>
+      <app-button [isButton]=true [title]="'Ajouter'" (buttonClicked)="redirect()"></app-button>
+    </div>
+  </div>
+  <!-- TODO: Create button generic componant -->
+  <form class="form-inline" [formGroup]='searchForm'>
+    <input class="form-control rounded-pill mr-sm-2"
+           type="search"
+           [placeholder]= "message"
+           aria-label="Search"
+           id="search"
+           formControlName="search"
+           (keyup)="search()">
+  </form>
+</div>
+
+
+
+
+
+<!--
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <h1>{{ title }}</h1>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" *ngFor="let item of tabFilters">
+          <a class="nav-link" type="submit" (click)="filter(item)">{{ item }}</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div>
+    <form class="form-inline my-2 my-lg-0" method="post">
+      <input class="form-control rounded-pill mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <input type="submit" style="display:none"/>
+    </form>
+  </div>
+</div>
+ -->

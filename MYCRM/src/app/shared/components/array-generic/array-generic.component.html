@@ -1,0 +1,18 @@
+<div>
+  <h3>{{ title }}</h3>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th *ngFor="let label of tabLabels" scope="col">{{label}}</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let items of tabData" >
+            <td *ngFor="let item of items | keyvalue">
+              <!--{{ !item.value.toString().includes("[object Object]") ? item.value : null }}-->
+              {{ item.value }}
+            </td>
+        </tr>
+      </tbody>
+  </table>
+</div>

@@ -1,0 +1,21 @@
+<div *ngIf="auth.userCObs | async as u">
+  <ul class="nav flex column" *ngIf="u.role === 'SUPERADMIN' || u.role === 'ADMIN'">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/customers" routerLinkActive="active" ><app-icon-customers></app-icon-customers>Clients</a>
+    </li>
+    <li>
+      <a class="nav-link" routerLink="/orders" routerLinkActive="active"><app-icon-orders></app-icon-orders>Commandes</a>
+    </li>
+    <li>
+      <a class="nav-link" routerLink="/users" routerLinkActive="active" ><app-icon-users></app-icon-users>Utilisateurs</a>
+    </li>
+  </ul>
+  <ul class="nav flex column" *ngIf="u.role === 'USER'">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/customers" routerLinkActive="active" ><app-icon-customers></app-icon-customers>Clients</a>
+    </li>
+    <li>
+      <a class="nav-link" routerLink="/orders" routerLinkActive="active"><app-icon-orders></app-icon-orders>Commandes</a>
+    </li>
+  </ul>
+</div>

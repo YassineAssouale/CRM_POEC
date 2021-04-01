@@ -1,0 +1,30 @@
+:host {
+  width: 100%;
+}
+.header {
+  display: flex;
+  align-items: center;
+  .logo {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 31px;
+      height: 38px;
+      margin-right: 5px;
+    }
+    h1 {
+      font-family: 'nunito_sansblack';
+      font-size: var(--title-xl);
+      margin: 0;
+      text-transform: uppercase;
+      //Ajout marge à gauche pour décoller du logo
+      margin-left: 20px;
+    }
+  }
+  .user {
+    font-size: var(--title-xl);
+    cursor: pointer;
+  }
+}

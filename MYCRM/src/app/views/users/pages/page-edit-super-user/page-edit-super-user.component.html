@@ -1,0 +1,43 @@
+<app-card-slide>
+  <ng-container class="headerText">
+    <h4>Ajout d'un client</h4>
+  </ng-container>
+  <ng-container class="slide-content">
+
+    <div class="container">
+      <h2 class="text-center">Modification de l'utilisateur {{superUser.username}} :</h2>
+      <form [formGroup]="superUserEditForm" (ngSubmit)='editSuperUser()'>
+
+        <div class="form-group">
+          <label for="username">Nom d'utilisateur : </label>
+          <input id="username" type="text" class="form-control" formControlName="username">
+        </div>
+        <div *ngIf="superUserEditForm.get('username').errors?.required && superUserEditForm.get('username').touched" class="alert alert-danger">Champs obligatoire</div>
+
+        <div class="form-group">
+          <label for="password">Mot de passe : </label>
+          <input id="password" type="password" class="form-control" formControlName="password">
+        </div>
+        <div *ngIf="superUserEditForm.get('password').errors?.required && superUserEditForm.get('password').touched" class="alert alert-danger">Champs obligatoire</div>
+        <div *ngIf="superUserEditForm.get('password').errors?.minlength && superUserEditForm.get('password').touched" class="alert alert-danger">8 caractères minimum</div>
+
+        <div class="form-group">
+          <label for="mail">Adresse mail : </label>
+          <input type="email" class="form-control" id="mail" aria-describedby="emailHelp" formControlName="mail">
+        </div>
+        <div *ngIf="superUserEditForm.get('mail').errors?.required && superUserEditForm.get('mail').touched" class="alert alert-danger">Champs Email est obligatoire</div>
+        <div *ngIf="superUserEditForm.get('mail').errors?.pattern" class="alert alert-danger">L'adresse Email n'est pas valide</div>
+
+        <div class="form-group">
+          <label for="role">Rôle : </label>
+          <select id="role" class="form-control" formControlName="role">
+            <option *ngFor="let role of roles" [ngValue]="role" [selected]="role">{{role}}</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-info" [disabled]="superUserEditForm.invalid">Modifier</button>
+
+      </form>
+    </div>
+  </ng-container>
+</app-card-slide>

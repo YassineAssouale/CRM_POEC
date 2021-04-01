@@ -1,0 +1,15 @@
+<form [formGroup]="formStatus">
+  <div *ngIf="selection">
+    <div class="ml-2" class="form-group">
+      <select class="form-control" formControlName="status" (click)="select()" [appSelectBackgroundColor]="valueSelected">
+        <option
+          *ngFor="let s of selection"
+          [ngValue]="s"
+          selected="valueSelected"
+        >
+          {{ s }}
+        </option>
+      </select>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,54 @@
+@import '~src/stylings/layout';
+
+.page-header {
+  border-bottom: 1px solid var(--gray);
+  margin-bottom: var(--space);
+  & > div {
+    display: flex;
+    justify-content: space-between;
+    h1 {
+      font-size: var(--title-xl);
+      margin-right: 1em;
+    }
+    a {
+      border-left: 1px solid var(--primary);
+      padding: 0 .5em;
+      &:hover {
+        cursor: pointer;
+        color: var(--secondary);
+      }
+    }
+    li:first-child a {
+      padding-left: 0;
+      border: none;
+    }
+    ul {
+      margin-bottom: var(--space);
+    }
+  }
+  form {
+    margin-bottom: var(--space)
+  }
+  input {
+    border-radius: 10em;
+    padding: .3em 1em;
+    &:focus {
+      border: 1px solid var(--secondary);
+      box-shadow: none;
+
+    }
+  }
+}
+app-button{
+  margin-top: 5px;
+  position:absolute;
+  right:30px;
+}
+@media (min-width: $lg-breakpoint) {
+  .page-header {
+    & > div > div {
+      display: flex;
+      align-items: baseline;
+    }
+  }
+}

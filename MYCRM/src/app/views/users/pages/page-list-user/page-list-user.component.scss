@@ -1,0 +1,35 @@
+img{
+  height: 50%;
+  width: 50%;
+  margin: auto;
+}
+.btn {
+  border-color: var(--secondary);
+}
+
+.btn-primary:hover{
+  color: var(--white);
+  background-color:var(--secondary);
+}
+
+.idDisplay {
+  color : var(--danger);
+  cursor: pointer;
+}
+
+.adminDisplay {
+  font-weight: bold;
+}
+
+.userDisplay  {
+  color: var(--secondary);
+}
+
+.btnDelete  {
+  margin-left: 10px;
+}
+
+.btnDelete, .btnEdit  {
+  cursor:pointer;
+  display: inline-block;
+}

@@ -1,0 +1,10 @@
+div > .row {
+  display : flex;
+  flex-grow: 1;
+  & > #left {
+    width : 100%;
+  }
+  & > right {
+    width: 0%;
+  }
+}

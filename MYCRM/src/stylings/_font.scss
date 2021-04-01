@@ -1,0 +1,39 @@
+// include here ongly imports fonts and fonts variables
+@font-face {
+  font-family: 'nunito_sansblack';
+  src: url('../assets/fonts/nunito-sans/nunitosans-black-webfont.woff2') format('woff2'),
+       url('../assets/fonts/nunito-sans/nunitosans-black-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'nunito_sanssemibold';
+  src: url('../assets/fonts/nunito-sans/nunitosans-semibold-webfont.woff2') format('woff2'),
+       url('../assets/fonts/nunito-sans/nunitosans-semibold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'nunito_sansregular';
+  src: url('../assets/fonts/nunito-sans/nunitosans-regular-webfont.woff2') format('woff2'),
+       url('../assets/fonts/nunito-sans/nunitosans-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// texts
+:root {
+  --text-s: 0.75rem; //12px
+  --text-m: 0.813rem; //13px
+  --text-l: 0.875rem; //14px
+  --text-xl: 1rem; //16px
+  }
+  // titles and important
+  :root {
+  --title-s: 1.125rem; //18px
+  --title-m: 1.25rem; //20px
+  --title-l: 1.375rem; //22px
+  --title-xl: 1.5rem; //24px
+  }

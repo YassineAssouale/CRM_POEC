@@ -1,0 +1,83 @@
+@import "src/stylings/theme";
+@import "src/stylings/layout";
+
+.ui {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background: var(--gray-light);
+}
+header {
+  height: 70px;
+  .fixed-top {
+    display: flex;
+    align-items: center;
+    padding: var(--space);
+    height: 70px;
+    background: var(--white);
+    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.04);
+    z-index: 1;
+    app-icon-bar-menu, app-icon-connexion, app-icon-account {
+      font-size: var(--title-xl);
+      cursor: pointer;
+    }
+    app-icon-account{
+      margin-right: 30px;
+    }
+
+  }
+}
+main {
+  flex-grow: 1;
+  display: flex;
+}
+.navigation {
+  width: 100px;
+  transition: all 0.1s;
+  div {
+    position: fixed;
+    height: 100%;
+    width: 100px;
+    z-index: 1;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.04);
+    border-radius: 0 0.75rem 0.75rem 0;
+    background: var(--white);
+    transition: all 0.1s;
+  }
+  &.close-nav {
+    width: 0;
+    overflow: hidden;
+    div {
+      width: 0;
+      overflow: hidden;
+    }
+  }
+}
+.page {
+  flex-grow: 1;
+  padding: 25px;
+}
+
+@media (min-width: $md-breakpoint) {
+  header {
+    height: 90px;
+    .fixed-top {
+      height: 90px;
+      padding: var(--space-md);
+    }
+  }
+  .navigation {
+    width: 110px;
+  }
+}
+
+@media (min-width: $xl-breakpoint) {
+  header {
+    height: 100px;
+    .fixed-top {
+      height: 100px;
+      padding: var(--space-xl);
+    }
+  }
+}
+

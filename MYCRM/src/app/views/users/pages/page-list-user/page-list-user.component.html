@@ -1,0 +1,71 @@
+<app-page-template>
+  <ng-container class="mainpage">
+    <div *ngIf="authService.userCObs | async as u">
+      <div *ngIf="u.role === 'SUPERADMIN'">
+        <app-header-page
+          [title]="titleUser"
+          [tabFilters]="filters"
+          [message]="messageUser"
+          (clickedFilter)="filterUser($event)"
+          (clickedSearchTerm)="searchTerm($event)"
+          (clickedAdd)="redirectAdd()">
+        </app-header-page>
+
+        <app-table [tabLabels]="tabLabels" *ngIf="superUsersObs | async as superUser">
+            <!-- ng-content -->
+            <tr *ngFor="let sup of superUser" [appManagementDisplayUser]="sup.role">
+              <td [appUserIdConnected]="sup.idUser" (click)="onIdClick(sup.idUser)" >{{ sup.idUser }}</td>
+              <td>{{ sup.username | connectedUser}}</td>
+              <td>{{ sup.mail }}</td>
+              <td>{{ sup.dateCreation | date:"dd/MM/yyyy" }}</td>
+              <td>{{ sup.dateLastConnexion | date:"dd/MM/yyyy" }}</td>
+              <td>{{ sup.role }}</td>
+              <td *ngIf="u.role == 'ADMIN' || u.role == 'SUPERADMIN'">
+                <span (click)="editUser(sup.idUser)"><app-icon-edit class="btnEdit"></app-icon-edit></span>
+                <span (click)="deleteUser(sup.idUser)"><app-icon-delete class="btnDelete" *ngIf="sup.idUser != u.id"></app-icon-delete></span>
+              </td>
+            </tr>
+              <!-- ng-content -->
+        </app-table>
+        <router-outlet class="userEdit"></router-outlet>
+      </div>
+
+      <div *ngIf="u.role === 'ADMIN'">
+        <app-header-page
+          [title]="titleUser"
+          [tabFilters]="filters"
+          [message]="messageUser"
+          (clickedFilter)="filterUser($event)"
+          (clickedSearchTerm)="searchTerm($event)"
+          (clickedAdd)="redirectAdd()">
+        </app-header-page>
+
+        <app-table [tabLabels]="tabLabels" *ngIf="superUsersObs | async as superUser">
+            <!-- ng-content -->
+              <tr *ngFor="let sup of superUser" [appManagementDisplayUser]="sup.role">
+                <td *ngIf="u.role != 'SUPERADMIN'" [appUserIdConnected]="u.idUser" (click)="onIdClick(u.idUser)">{{ u.idUser }}</td>
+                <td *ngIf="u.role != 'SUPERADMIN'">{{ sup.username | connectedUser}}</td>
+                <td *ngIf="u.role != 'SUPERADMIN'">{{ sup.mail }}</td>
+                <td *ngIf="u.role != 'SUPERADMIN'">{{ sup.dateCreation | date:"dd/MM/yyyy" }}</td>
+                <td *ngIf="u.role != 'SUPERADMIN'">{{ sup.dateLastConnexion | date:"dd/MM/yyyy" }}</td>
+                <td *ngIf="u.role != 'SUPERADMIN'">{{ sup.role }}</td>
+                <td *ngIf="u.role == 'ADMIN' || u.role == 'SUPERADMIN'">
+                  <span (click)="editUser(sup.idUser)"><app-icon-edit class="btnEdit"></app-icon-edit></span>
+                  <span (click)="deleteUser(sup.idUser)"><app-icon-delete class="btnDelete" *ngIf="sup.idUser != u.id"></app-icon-delete></span>
+                </td>
+              </tr>
+              <!-- ng-content -->
+        </app-table>
+        <router-outlet class="userEdit"></router-outlet>
+      </div>
+
+      <div *ngIf="u.role === 'USER'">
+        Vous ne passerez pas flamme d'Undun!
+      </div>
+    </div>
+
+  </ng-container>
+  <ng-container class="rightdisplay">
+    <router-outlet class="rightdisplay"></router-outlet>
+  </ng-container>
+</app-page-template>

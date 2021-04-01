@@ -1,0 +1,74 @@
+<app-card-slide>
+  <ng-container class="headerText">
+    <h4>Ajout d'une commande</h4>
+  </ng-container>
+  <ng-container class="slide-content">
+    <div class="container">
+      <form [formGroup]="formOrder" (ngSubmit)="addOrder()">
+        <div class="mb-3"class="form-group">
+          <label for="label" class="font-weight-bold">Label :</label>
+          <input id="label" type="text" class="form-control" formControlName="label">
+        </div>
+        <div *ngIf="formOrder.get('label').errors?.required && formOrder.get('label').touched" class="alert alert-danger">Champ obligatoire!</div>
+        <div *ngIf="formOrder.get('label').errors?.maxlength && formOrder.get('label').touched" class="alert alert-danger">30 caractères maximum</div>
+
+        <div class="mb-3"class="form-group">
+          <label for="adrEt" class="font-weight-bold">TJM :</label>
+          <input id="adrEt" type="number" class="form-control" formControlName="adrEt">
+        </div>
+        <div *ngIf="formOrder.get('adrEt').errors?.max && formOrder.get('adrEt').touched" class="alert alert-danger">Tjm 750 max!</div>
+
+        <div class="mb-3"class="form-group">
+          <label for="numberOfDays" class="font-weight-bold">Nombre de jours :</label>
+          <input id="numberOfDays" type="number" class="form-control" formControlName="numberOfDays" >
+        </div>
+        <div *ngIf="formOrder.get('numberOfDays').errors?.required && formOrder.get('numberOfDays').touched" class="alert alert-danger">Nombre de jours obligatoire!</div>
+
+        <div class="mb-3"class="form-group">
+          <label for="tva" class="font-weight-bold">Tva :</label>
+          <input id="tva" type="number" class="form-control" formControlName="tva">
+        </div>
+        <div *ngIf="formOrder.get('tva').errors?.required && formOrder.get('tva').touched" class="alert alert-danger">Tva obligatoire!</div>
+
+        <div class="mb-3"class="form-group">
+          <label for="status" class="font-weight-bold">Status :</label>
+          <select class="form-control" formControlName="status">
+            <option selected>Choisir un statut: </option>
+            <option *ngFor="let s of status" [ngValue] ="s">
+              {{s}}</option>
+          </select>
+        </div>
+
+        <div class="mb-3"class="form-group">
+          <label for="type" class="font-weight-bold">Type :</label>
+          <select class="form-control" formControlName="type">
+            <option selected>Choisir un type: </option>
+            <option *ngFor="let t of types" [ngValue] ="t">
+              {{t}}</option>
+          </select>
+        </div>
+
+        <div class="mb-3"class="form-group">
+          <label for="notes" class="font-weight-bold">Notes :</label>
+          <textarea id="notes" class="form-control" formControlName="notes">
+          </textarea>
+        </div>
+
+        <div *ngIf="customerObs">
+          <div class="mb-3"class="form-group">
+            <label for="customerId" class="font-weight-bold">Clients :</label>
+            <p><ins><a routerLink="/customers/add" class="font-weight-bold">Créer un client : </a> </ins></p>
+            <select class="form-control" formControlName="customerId">
+              <option [ngValue]="null" disabled>Choisir un client: </option>
+              <option *ngFor="let c of customerObs |async" [ngValue] ="c.id">
+                {{c.firstname}} {{c.lastname}}</option>
+            </select>
+          </div>
+      </div>
+
+        <button type="submit" class="btn btn-success" [disabled]="formOrder.invalid" >Ajouter</button>
+
+      </form>
+    </div>
+  </ng-container>
+</app-card-slide>

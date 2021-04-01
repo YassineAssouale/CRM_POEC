@@ -1,0 +1,43 @@
+<app-page-template
+  [buttonName] = "buttonCardSlideName">
+  <ng-container class="mainpage">
+    <app-header-page
+    [title]="titreCustomer"
+    [tabFilters]="filtersTab"
+    [message]="messageClient"
+    (clickedFilter)="filterCustomerEtat($event)"
+    (clickedSearchTerm)="searchTerm($event)"
+    (clickedAdd)="redirectAdd()">
+    </app-header-page>
+
+    <!-- card Filter -->
+    <div *ngIf="customerObsFilter | async as collection">
+      <app-card *ngFor="let c of collection"
+        (editClicked)="edit(c.id)"
+        (displayClicked)="display(c.id)"
+        (deleteClicked)="deleteX(c)"
+        [selection]="['ACTIF', 'INACTIF']"
+        [valueSelected]="boolToString(c.active)"
+        (clickedItemSelection)="select($event, c)"
+
+      >
+        <!-- ng-content titles -->
+        <ng-container class="titles">
+          <p><strong>{{ c.company }}</strong></p>
+          <p>{{ c | displayValue:"f_l_name"}}</p>
+        </ng-container>
+
+        <!-- ng-content card-body -->
+        <ng-container class="card-body">
+          <p [appCustomerDisplay] = "c.mail"><span>Mail : </span> <a href="mailto:{{c.mail}}">{{ c.mail }}</a></p>
+          <p [appCustomerDisplay] = "c.phone"><span>Tel : </span> <a href="tel:{{c.phone}}">{{ c | displayValue: "phone"}}</a> </p>
+          <p [appCustomerDisplay] = "c.mobile"><span>Mobile : </span> <a href="tel:{{c.mobile}}">{{ c | displayValue: "mobile"}}</a> </p>
+          <!-- <p><span>Active : </span> <a href="tel:{{c.active}}">{{ c | displayValue: "active"}}</a> </p> -->
+        </ng-container>
+      </app-card>
+    </div>
+  </ng-container>
+  <ng-container class="rightdisplay">
+    <router-outlet class="rightdisplay"></router-outlet>
+  </ng-container>
+</app-page-template>

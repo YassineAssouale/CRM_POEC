@@ -1,0 +1,30 @@
+.card-header {
+  background-image: url('/assets/images/LandscapeBalloon.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: luminosity;
+}
+
+.closeIcon > * {
+  color: var(--white);
+  cursor: pointer;
+}
+
+.card-header {
+  & > .row, & > col {
+    width: 100%;
+  }
+}
+
+#button {
+  position: absolute;
+  width: 100%;
+}
+
+app-button {
+  position: absolute;
+}
+
+#headerText {
+  color : var(--white);
+}

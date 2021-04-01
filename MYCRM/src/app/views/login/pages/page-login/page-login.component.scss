@@ -1,0 +1,49 @@
+
+
+.container-fluid{
+  background-image: url('../../../../../assets/images/font-login.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: auto;
+  align-content: center;
+
+}
+
+  .card{
+  max-height: 450px;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 400px;
+  background-color: rgba(0,0,0,0.5) !important;
+  }
+
+  .card-header h3{
+  color:var(--white);
+  text-align:center;
+  }
+
+  .input-group-prepend span{
+  width: 50px;
+  background-color: var(--yelow);
+  color: var(--black);
+  border:0 !important;
+  }
+
+.card-footer{
+  // margin-left: 50% !important;
+  margin-top: 40px !important;
+  text-align: center;
+}
+
+input   {
+  margin-bottom: 15px;
+}
+.alert-danger{
+  width:358px;
+  max-height: 40px;
+  margin:auto;
+  font-size: 1em;
+  padding-top: 7px !important;
+}
+

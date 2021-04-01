@@ -1,0 +1,37 @@
+select{
+  border-radius: 10em;
+  background-color: green;
+  color: white;
+}
+
+.form-control {
+  font-size: small;
+  display: inline;
+  width: max-content;
+}
+
+.form-group {
+  margin-bottom: 5px;
+  margin-left: 5px;
+}
+
+/* Select button background directive */
+.beginner {
+  background-color: var(--success);
+}
+
+.advanced {
+  background-color: var(--warning);
+}
+
+.expert {
+  background-color: var(--danger);
+}
+
+.active {
+  background-color: var(--success);
+}
+
+.idle {
+  background-color: var(--danger);
+}

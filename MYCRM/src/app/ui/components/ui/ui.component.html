@@ -1,0 +1,23 @@
+<div class="ui">
+  <header>
+    <div class="fixed-top">
+      <app-icon-bar-menu *ngIf='authService.isConnected' (click)="openNav()">
+        </app-icon-bar-menu>
+      <ng-content select=".header"></ng-content>
+      <app-icon-account *ngIf='authService.isConnected' (click)="displayAccount()"></app-icon-account>
+      <app-icon-connexion *ngIf='authService.isConnected' (click)="deconnexion()"></app-icon-connexion>
+    </div>
+  </header>
+  <main>
+    <aside *ngIf='authService.isConnected' class="navigation" id="navigation" [ngClass] = "{'close-nav': displayNavBar}">
+      <div>
+          <ng-content select=".nav"></ng-content>
+      </div>
+    </aside>
+    <div class="page">
+      <ng-content select=".page"></ng-content>
+    </div>
+  </main>
+</div>
+
+

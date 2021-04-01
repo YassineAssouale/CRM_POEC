@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="card mx-auto my-3">
+    <div class="row no-gutters border border-3 rounded">
+      <div class="col-auto rounded-start" id="background-img">
+        <app-template-selection
+          [selection]="selection"
+          [valueSelected]="valueSelected"
+          (clickedItemSelection)="select($event)"></app-template-selection>
+        <ng-content select=".titles"></ng-content>
+      </div>
+      <div class="col">
+        <div class="card-block">
+          <div class="card-text text-right">
+
+            <ng-content select=".card-body"></ng-content>
+
+            <hr class="mx-0 mb-0 px-0"> <!-------------------------->
+
+            <div id="edit" class="row m-auto pr-2 pt-1">
+              <app-card-footer
+                (editClicked)="edit()"
+                (displayClicked)="display()"
+                (deleteClicked)="deleteX()"
+              ></app-card-footer>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

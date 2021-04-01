@@ -1,0 +1,58 @@
+/* Card's content CSS */
+.card-text {
+  & > * {
+    font-size: small;
+  }
+  & > p {
+    margin-bottom: 0px;
+    margin-top: 5px;
+    margin-right: 5px;
+    color : var(--secondary);
+    & > span { // page-list-order content
+      color : var(--gray-dark);
+      font-weight: normal;
+    }
+    & > a {
+      text-decoration: none;
+      color: var(--secondary);
+    }
+  }
+}
+
+/* Generic card attributes */
+
+.card {
+  min-width: 456.1px;
+  max-width: 80%;
+}
+
+hr {
+  width : 100%;
+}
+
+#background-img {
+  background-image: url('/assets/images/LandscapeBalloon.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: luminosity;
+
+  border-radius: 5px 0px 0px 5px ;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  /* Content over background img */
+  & > p {
+    color: var(--white);
+    margin-left: 10px;
+    margin-bottom: 5px;
+  }
+
+  min-width: 220px;
+}
+
+#edit {
+  display: flex;
+  justify-content: flex-end;
+}
